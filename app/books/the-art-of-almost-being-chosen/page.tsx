@@ -245,18 +245,34 @@ export default function BookPage() {
         </div>
       </section>
 
+      {/* REACH OUT */}
+      <section className="py-16 px-6 text-center border-t border-(--line)">
+        <p className="text-xs tracking-[0.22em] uppercase text-(--accent) mb-4">Say Hello</p>
+        <p className="font-serif text-2xl md:text-3xl text-(--cream) mb-6" style={{ textWrap: "balance" }}>
+          Kepler reads every message.
+        </p>
+        <a
+          href="https://www.instagram.com/keplervel/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-sm tracking-widest uppercase text-(--accent) border border-(--accent)/40 px-8 py-3 hover:border-(--accent) hover:text-(--accent-soft) transition-[border-color,color] duration-200"
+        >
+          DM on Instagram →
+        </a>
+      </section>
+
       {/* FOOTER */}
       <footer className="border-t border-(--line) py-8 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-3 items-center gap-4 text-xs text-(--cream-dim) tracking-wide">
+        <div className="max-w-6xl mx-auto text-xs text-(--cream-dim) tracking-wide flex flex-col md:grid md:grid-cols-3 items-center gap-4">
+          {/* Centre — copyright first on mobile */}
+          <span className="text-center order-1 md:order-2">© Kepler Vel</span>
           {/* Left */}
-          <a href="https://streetsideweb.com.au" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-200">
+          <a href="https://streetsideweb.com.au" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-200 order-2 md:order-1">
             <span className="text-xs text-(--cream-dim) tracking-wide shrink-0">Built by</span>
             <img src="/assets/SSW_APPIcon.png" alt="StreetSide Web" width={100} height={28} className="h-7 w-auto" />
           </a>
-          {/* Centre */}
-          <span className="text-center">© Kepler Vel</span>
           {/* Right */}
-          <div className="flex items-center justify-end gap-5">
+          <div className="flex items-center justify-center md:justify-end gap-5 order-3">
             <a href="https://www.instagram.com/keplervel/" target="_blank" rel="noopener noreferrer" className="hover:text-(--cream) transition-[color] duration-150 uppercase tracking-widest">Instagram</a>
             <a href="https://www.tiktok.com/@keplervel" target="_blank" rel="noopener noreferrer" className="hover:text-(--cream) transition-[color] duration-150 uppercase tracking-widest">TikTok</a>
             <AmazonButton asin={book.asin} label="Amazon" variant="outline" className="text-xs px-4 py-2 tracking-widest" />

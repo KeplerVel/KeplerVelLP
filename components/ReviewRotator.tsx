@@ -44,24 +44,24 @@ export default function ReviewRotator({ reviews }: Props) {
   }
 
   return (
-    <section className="border-b border-(--line)" aria-label="Reader reviews">
+    <section className="border-b border-(--accent)/20 bg-(--cream)" aria-label="Reader reviews">
 
       {/* ── MOBILE: 3D carousel ── */}
       <div
-        className="md:hidden py-10 px-4 overflow-hidden"
+        className="md:hidden py-10 overflow-hidden"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div className="relative h-72" style={{ perspective: "900px" }}>
+        <div className="relative h-96" style={{ perspective: "1000px" }}>
           {reviews.map((rev, i) => {
             const d = offset(i);
             const abs = Math.abs(d);
-            if (abs > 1) return null; // only show center + immediate neighbours
+            if (abs > 1) return null;
 
-            const translateX = d * 68; // % shift
-            const rotateY = d * -18;   // degrees
-            const scale = abs === 0 ? 1 : 0.78;
-            const opacity = abs === 0 ? 1 : 0.4;
+            const translateX = d * 72;
+            const rotateY = d * -22;
+            const scale = abs === 0 ? 1 : 0.82;
+            const opacity = abs === 0 ? 1 : 0.45;
             const zIndex = abs === 0 ? 10 : 5;
 
             return (
@@ -70,7 +70,10 @@ export default function ReviewRotator({ reviews }: Props) {
                 onClick={() => abs > 0 && go(d > 0 ? 1 : -1)}
                 style={{
                   position: "absolute",
-                  inset: 0,
+                  top: 0,
+                  bottom: 0,
+                  left: "8%",
+                  right: "8%",
                   transform: `translateX(${translateX}%) rotateY(${rotateY}deg) scale(${scale})`,
                   opacity,
                   zIndex,
@@ -79,16 +82,16 @@ export default function ReviewRotator({ reviews }: Props) {
                   cursor: abs > 0 ? "pointer" : "default",
                 }}
               >
-                <div className="h-full border border-(--line) bg-(--bg2) px-6 py-7 flex flex-col justify-between overflow-hidden">
+                <div className="h-full border border-(--accent)/20 bg-(--cream) px-6 py-8 flex flex-col justify-between overflow-hidden">
                   <div>
-                    <div className="text-sm text-(--accent) mb-3 tracking-widest">
+                    <div className="text-sm text-(--accent) mb-4 tracking-widest">
                       {"★".repeat(rev.stars)}{"☆".repeat(5 - rev.stars)}
                     </div>
-                    <p className="font-serif text-base italic text-(--cream) leading-snug mb-3 line-clamp-5">
+                    <p className="font-serif text-base italic text-(--ink) leading-relaxed mb-3 line-clamp-7">
                       &ldquo;{rev.quote}&rdquo;
                     </p>
                   </div>
-                  <p className="text-xs tracking-widest uppercase text-(--cream-dim) mt-2">
+                  <p className="text-xs tracking-widest uppercase mt-2" style={{ color: "#7a6e63" }}>
                     {rev.source}
                   </p>
                 </div>
@@ -117,7 +120,7 @@ export default function ReviewRotator({ reviews }: Props) {
       </div>
 
       {/* ── DESKTOP: fading quote ── */}
-      <div className="hidden md:block py-16 px-6 text-center">
+      <div className="hidden md:block py-16 px-6 text-center bg-(--cream)">
         <div
           style={{
             opacity: visible ? 1 : 0,
@@ -129,12 +132,12 @@ export default function ReviewRotator({ reviews }: Props) {
             {"★".repeat(r.stars)}{"☆".repeat(5 - r.stars)}
           </div>
           <blockquote
-            className="font-serif text-lg md:text-2xl italic text-(--cream) max-w-2xl mx-auto leading-relaxed mb-6"
+            className="font-serif text-lg md:text-2xl italic text-(--ink) max-w-2xl mx-auto leading-relaxed mb-6"
             style={{ textWrap: "balance" }}
           >
             &ldquo;{r.quote}&rdquo;
           </blockquote>
-          <p className="text-xs tracking-widest uppercase text-(--cream-dim)">{r.source}</p>
+          <p className="text-xs tracking-widest uppercase" style={{ color: "#7a6e63" }}>{r.source}</p>
         </div>
         <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Reviews">
           {reviews.map((_, i) => (
