@@ -33,9 +33,9 @@ export const books: Book[] = [
     status: "published",
     eyebrow: "A Novel · Literary Fiction",
     hook: "A story about ambition, silence, and the women who mistake potential for love.",
-    sub: "For everyone who has ever confused endurance with being loved — and called the waiting devotion.",
+    sub: "For everyone who has ever confused endurance with being loved, and called the waiting devotion.",
     synopsis:
-      "She is brilliant, patient, and endlessly accommodating — the kind of woman who mistakes potential for promise and waiting for love. The Art of Almost Being Chosen follows her through the rooms where ambition is rewarded and tenderness is not, tracing what it costs to keep auditioning for a life that keeps almost happening.",
+      "She is brilliant, patient, and endlessly accommodating: the kind of woman who mistakes potential for promise and waiting for love. The Art of Almost Being Chosen follows her through the rooms where ambition is rewarded and tenderness is not, tracing what it costs to keep auditioning for a life that keeps almost happening.",
     themes: ["Ambition", "Silence", "Longing", "Self-worth", "Female interiority"],
     excerpt:
       "She had learned to make herself small enough to be carried, and then wondered why no one ever did.",

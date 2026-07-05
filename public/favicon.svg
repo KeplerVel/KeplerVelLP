@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#0d0c10"/>
-  <text x="16" y="22" font-family="Georgia, serif" font-size="13" font-weight="600" fill="#c8a24a" text-anchor="middle" letter-spacing="1">KV</text>
+  <!-- K -->
+  <text x="5" y="23" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" font-style="italic" fill="#c8a24a">K</text>
+  <!-- V overlapping slightly -->
+  <text x="15" y="23" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" font-style="italic" fill="#0d0c10">V</text>
+  <text x="16" y="23" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" font-style="italic" fill="#c8a24a" opacity="0.95">V</text>
 </svg>

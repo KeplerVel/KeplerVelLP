@@ -132,7 +132,7 @@ export default function ReviewRotator({ reviews }: Props) {
             {"★".repeat(r.stars)}{"☆".repeat(5 - r.stars)}
           </div>
           <blockquote
-            className="font-serif text-lg md:text-2xl italic text-(--ink) max-w-2xl mx-auto leading-relaxed mb-6"
+            className="font-serif text-lg md:text-2xl italic font-semibold text-(--ink) max-w-2xl mx-auto leading-relaxed mb-6"
             style={{ textWrap: "balance" }}
           >
             &ldquo;{r.quote}&rdquo;
