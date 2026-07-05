@@ -87,7 +87,7 @@ export default function ReviewRotator({ reviews }: Props) {
                     <div className="text-sm text-(--accent) mb-4 tracking-widest">
                       {"★".repeat(rev.stars)}{"☆".repeat(5 - rev.stars)}
                     </div>
-                    <p className="font-serif text-base italic text-(--ink) leading-relaxed mb-3 line-clamp-7">
+                    <p className="font-serif text-base italic font-semibold text-(--ink) leading-relaxed mb-3 line-clamp-7">
                       &ldquo;{rev.quote}&rdquo;
                     </p>
                   </div>

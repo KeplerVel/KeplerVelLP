@@ -18,6 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  icons: { icon: "/favicon.svg" },
   title: "Kepler Vel — The Art of Almost Being Chosen",
   description:
     "Literary fiction about ambition, silence, and the women who mistake potential for love. Debut novel by Kepler Vel.",
