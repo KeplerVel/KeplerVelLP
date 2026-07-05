@@ -44,7 +44,7 @@ export default function ReviewRotator({ reviews }: Props) {
   }
 
   return (
-    <section className="border-b border-(--accent)/20 bg-(--cream)" aria-label="Reader reviews">
+    <section className="border-b border-(--line)" aria-label="Reader reviews">
 
       {/* ── MOBILE: 3D carousel ── */}
       <div
