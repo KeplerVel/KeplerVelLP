@@ -252,7 +252,7 @@ export default function BookPage() {
           Kepler reads every message.
         </p>
         <a
-          href="https://www.instagram.com/keplervel/"
+          href="https://ig.me/m/keplervel"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block text-sm tracking-widest uppercase text-(--accent) border border-(--accent)/40 px-8 py-3 hover:border-(--accent) hover:text-(--accent-soft) transition-[border-color,color] duration-200"
