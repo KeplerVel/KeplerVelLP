@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: "A story about ambition, silence, and the women who mistake potential for love. Debut novel by Kepler Vel, available on Amazon.",
     url: "https://keplervel.com",
     siteName: "Kepler Vel",
-    images: [{ url: "/assets/lifestyle-book-espresso-window.jpg", width: 1200, height: 630, alt: "The Art of Almost Being Chosen by Kepler Vel" }],
+    images: [{ url: "/assets/book-cover-on-brick-blue-wall.jpg", width: 1200, height: 630, alt: "The Art of Almost Being Chosen by Kepler Vel" }],
     type: "website",
     locale: "en_AU",
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Art of Almost Being Chosen — Kepler Vel",
     description: "A story about ambition, silence, and the women who mistake potential for love.",
-    images: ["/assets/lifestyle-book-espresso-window.jpg"],
+    images: ["/assets/book-cover-on-brick-blue-wall.jpg"],
     creator: "@keplervel",
   },
   robots: {
