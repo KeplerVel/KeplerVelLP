@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import AmazonButton from "@/components/AmazonButton";
+import BookReveal from "@/components/BookReveal";
 import ReviewRotator from "@/components/ReviewRotator";
 import { books } from "@/data/books";
 
@@ -88,17 +89,18 @@ export default function HomePage() {
 
       {/* LIFESTYLE STRIP */}
       <section ref={rev(0)} className="reveal grid grid-cols-1 md:grid-cols-3 gap-0">
-        <div className="relative aspect-4/5 overflow-hidden">
+        {/* on mobile show only the middle image */}
+        <div className="hidden md:block relative aspect-4/5 overflow-hidden">
           <Image
             src="/assets/lifestyle-reading-candid-01.jpg"
             alt="Reader absorbed in the book by a window"
             fill
-            sizes="(max-width: 768px) 100vw, 33vw"
+            sizes="33vw"
             loading="lazy"
             className="object-cover object-top hover:scale-105 transition-transform duration-700"
           />
         </div>
-        <div className="relative aspect-4/5 overflow-hidden">
+        <div className="relative aspect-4/5 md:aspect-4/5 overflow-hidden">
           <Image
             src="/assets/lifestyle-reading-couch-profile.jpg"
             alt="Author reading on couch with multiple copies of the book"
@@ -109,12 +111,12 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-(--ink)/20" aria-hidden="true" />
         </div>
-        <div className="relative aspect-4/5 overflow-hidden">
+        <div className="hidden md:block relative aspect-4/5 overflow-hidden">
           <Image
             src="/assets/lifestyle-reading-candid-02.jpg"
             alt="Person holding the book on a couch"
             fill
-            sizes="(max-width: 768px) 100vw, 33vw"
+            sizes="33vw"
             loading="lazy"
             className="object-cover object-center hover:scale-105 transition-transform duration-700"
           />
@@ -195,70 +197,80 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* COMING SOON — The Blink He Waited For */}
+      <section ref={rev(9)} className="reveal py-20 md:py-28 px-6 border-t border-(--accent)/20 bg-(--cream)">
+        <div className="max-w-6xl mx-auto flex flex-col gap-10">
+          <BookReveal
+            src="/assets/The_Blink_He_Waited_For_PAPERBACK_COVER.jpg"
+            alt="The Blink He Waited For — upcoming novel by Kepler Vel"
+          />
+          <div className="max-w-2xl">
+            <p className="text-xs tracking-[0.22em] uppercase text-(--accent) mb-4 font-bold">Coming Soon · Contemporary Romance · Dual-Timeline</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-(--ink) mb-4 leading-tight" style={{ textWrap: "balance" }}>
+              The Blink He Waited For
+            </h2>
+            <p className="font-serif text-xl italic text-(--accent) mb-5 leading-relaxed" style={{ fontWeight: 700 }}>
+              She forgot the most important day of her life. He never could.
+            </p>
+            <p className="font-semibold leading-relaxed mb-4 max-w-prose" style={{ color: "#7a6e63" }}>
+              Thirty-five years ago, Maya left without looking back, and forgot the boy who never stopped waiting. When his face resurfaces in a video half a world away, a buried past unravels: a circled date, a cut photograph, a secret that was never hers to keep. Some silences are theft.
+            </p>
+            <p className="font-serif text-sm italic mb-8 border-l-2 border-(--accent)/40 pl-4" style={{ color: "#7a6e63", fontWeight: 700 }}>
+              &ldquo;Thirty-five years. Forty steps. One conversation neither of them ever had.&rdquo;
+            </p>
+            <a
+              href="https://ig.me/m/keplervel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-sm tracking-widest uppercase text-(--accent) bg-(--ink) border border-(--ink) px-8 py-3 hover:bg-(--bg2) transition-[background-color] duration-200"
+            >
+              Follow for Updates →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* AUTHOR */}
-      <section ref={rev(3)} className="reveal py-20 md:py-32 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row-reverse gap-12 md:gap-20 items-center">
-          <div className="shrink-0 w-72 md:w-96">
-            <div className="relative aspect-3/4 overflow-hidden">
+      <section ref={rev(3)} className="reveal border-t border-(--line) overflow-hidden">
+        <div className="flex flex-col md:flex-row-reverse">
+          {/* Circle portrait — right */}
+          <div className="flex items-center justify-center w-full md:w-1/2 pt-12 pb-4 md:py-16">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden ring-1 ring-(--accent)/30">
               <Image
                 src="/assets/author-black-pink-saree-cityscape.jpg"
                 alt="Kepler Vel, author"
                 fill
-                sizes="(max-width: 768px) 288px, 384px"
+                sizes="(max-width: 768px) 256px, 320px"
                 loading="lazy"
                 className="object-cover object-top"
               />
             </div>
           </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-xs tracking-[0.22em] uppercase text-(--accent) mb-4">The Author</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light text-(--cream) mb-6">Kepler Vel</h2>
-            <p className="text-(--cream-dim) leading-relaxed mb-6 max-w-prose">
-              Kepler Vel writes about women who are good at waiting and worse at stopping. Based in Australia,{" "}
-              <em className="italic">The Art of Almost Being Chosen</em> is her debut novel.
-            </p>
-            <div className="flex gap-6">
-              <a href="https://www.instagram.com/keplervel/" target="_blank" rel="noopener noreferrer" className="text-xs tracking-widest uppercase text-(--accent) hover:text-(--accent-soft) transition-[color] duration-150 focus-visible:outline-2 focus-visible:outline-(--accent)">Instagram</a>
-              <a href="https://www.tiktok.com/@keplervel" target="_blank" rel="noopener noreferrer" className="text-xs tracking-widest uppercase text-(--accent) hover:text-(--accent-soft) transition-[color] duration-150 focus-visible:outline-2 focus-visible:outline-(--accent)">TikTok</a>
+          {/* Text — left half */}
+          <div className="flex-1 flex items-center px-8 md:px-14 pb-12 pt-4 md:py-24">
+            <div>
+              <p className="text-xs tracking-[0.22em] uppercase text-(--accent) mb-4">The Author</p>
+              <h2 className="font-serif text-4xl md:text-5xl font-light text-(--cream) mb-6">Kepler Vel</h2>
+              <p className="text-(--cream-dim) leading-relaxed mb-6 max-w-prose">
+                Kepler Vel writes about women who are good at waiting and worse at stopping. Based in Australia,{" "}
+                <em className="italic">The Art of Almost Being Chosen</em> is her debut novel.
+              </p>
+              <div className="flex gap-6">
+                <a href="https://www.instagram.com/keplervel/" target="_blank" rel="noopener noreferrer" className="text-xs tracking-widest uppercase text-(--accent) hover:text-(--accent-soft) transition-[color] duration-150 focus-visible:outline-2 focus-visible:outline-(--accent)">Instagram</a>
+                <a href="https://www.tiktok.com/@keplervel" target="_blank" rel="noopener noreferrer" className="text-xs tracking-widest uppercase text-(--accent) hover:text-(--accent-soft) transition-[color] duration-150 focus-visible:outline-2 focus-visible:outline-(--accent)">TikTok</a>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEEN IN THE WILD */}
-      <section ref={rev(5)} className="reveal py-16 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16 items-center">
-          <div className="shrink-0 w-full md:w-96">
-            <div className="relative aspect-video overflow-hidden">
-              <Image
-                src="/assets/lifestyle-book-on-shelf-dark.jpg"
-                alt="The book on a shelf beside Atomic Habits, Big Magic, The Subtle Art of Not Giving a F*ck and other bestsellers"
-                fill
-                sizes="(max-width: 768px) 100vw, 384px"
-                loading="lazy"
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-xs tracking-[0.22em] uppercase text-(--accent) mb-3">On the Shelf</p>
-            <p className="font-serif text-2xl md:text-3xl text-(--cream) leading-snug mb-3" style={{ textWrap: "balance" }}>
-              It belongs here.
-            </p>
-            <p className="text-(--cream-dim) text-sm leading-relaxed">
-              On shelves beside Atomic Habits, Big Magic, The Subtle Art of Not Giving a F*ck. It found its people.
-            </p>
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section ref={rev(6)} className="reveal py-24 md:py-36 px-6 text-center">
+      <section ref={rev(6)} className="reveal py-24 md:py-36 px-6 text-center border-t border-(--accent)/20 bg-(--cream)">
         <p className="text-xs tracking-[0.22em] uppercase text-(--accent) mb-6">Out Now</p>
-        <h2 className="font-serif text-4xl md:text-6xl font-light text-(--cream) mb-6" style={{ textWrap: "balance" }}>
+        <h2 className="font-serif text-4xl md:text-6xl font-light text-(--ink) mb-6" style={{ textWrap: "balance" }}>
           One sitting. Maybe two.
         </h2>
-        <p className="text-(--cream-dim) mb-10 max-w-md mx-auto leading-relaxed">
+        <p className="mb-10 max-w-md mx-auto leading-relaxed" style={{ color: "#7a6e63" }}>
           Paperback and Kindle. On Amazon, wherever you are.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
@@ -267,17 +279,44 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SEEN IN THE WILD */}
+      <section ref={rev(5)} className="reveal border-t border-(--line) overflow-hidden">
+        <div className="flex flex-col md:flex-row min-h-96">
+          <div className="relative w-full md:w-1/2 min-h-64 md:min-h-full">
+            <Image
+              src="/assets/lifestyle-book-on-shelf-dark.jpg"
+              alt="The book on a shelf beside Atomic Habits, Big Magic, The Subtle Art of Not Giving a F*ck and other bestsellers"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
+              className="object-cover"
+            />
+          </div>
+          <div className="flex-1 flex items-center px-8 md:px-14 py-12 md:py-16">
+            <div>
+              <p className="text-xs tracking-[0.22em] uppercase text-(--accent) mb-3">On the Shelf</p>
+              <p className="font-serif text-2xl md:text-3xl text-(--cream) leading-snug mb-3" style={{ textWrap: "balance" }}>
+                It belongs here.
+              </p>
+              <p className="text-(--cream-dim) text-sm leading-relaxed">
+                On shelves beside Atomic Habits, Big Magic, The Subtle Art of Not Giving a F*ck. It found its people.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* REACH OUT */}
-      <section className="py-16 px-6 text-center border-t border-(--line)">
+      <section className="py-16 px-6 text-center border-t border-(--accent)/20 bg-(--cream)">
         <p className="text-xs tracking-[0.22em] uppercase text-(--accent) mb-4">Say Hello</p>
-        <p className="font-serif text-2xl md:text-3xl text-(--cream) mb-6" style={{ textWrap: "balance" }}>
+        <p className="font-serif text-2xl md:text-3xl text-(--ink) mb-6" style={{ textWrap: "balance" }}>
           Kepler reads every message.
         </p>
         <a
           href="https://ig.me/m/keplervel"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block text-sm tracking-widest uppercase text-(--accent) border border-(--accent)/40 px-8 py-3 hover:border-(--accent) hover:text-(--accent-soft) transition-[border-color,color] duration-200"
+          className="inline-block text-sm tracking-widest uppercase text-(--accent) bg-(--ink) border border-(--ink) px-8 py-3 hover:bg-(--bg2) transition-[background-color] duration-200"
         >
           DM on Instagram →
         </a>

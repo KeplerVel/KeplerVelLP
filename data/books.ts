@@ -85,6 +85,25 @@ export const books: Book[] = [
       },
     ],
   },
+  {
+    slug: "the-blink-he-waited-for",
+    title: "The Blink He Waited For",
+    status: "coming-soon",
+    eyebrow: "Coming Soon · Contemporary Romance · Dual-Timeline",
+    hook: "She forgot the most important day of her life. He never could.",
+    sub: "A dual-timeline novel about memory, longing, and the words never said.",
+    synopsis: "Thirty-five years ago, Maya left without looking back, and forgot the boy who never stopped waiting. When his face resurfaces in a video half a world away, a buried past unravels: a circled date, a cut photograph, a secret that was never hers to keep. Some silences are kindness. Some are theft.",
+    themes: [],
+    heroImage: "/assets/The_Blink_He_Waited_For_PAPERBACK_COVER.jpg",
+    coverImage: "/assets/The_Blink_He_Waited_For_PAPERBACK_COVER.jpg",
+    flatLayImage: "",
+    openBookImage: "",
+    authorImage: "",
+    formats: [],
+    asin: "",
+    asinKindle: "",
+    reviews: [],
+  },
 ];
 
 export function getBook(slug: string): Book | undefined {
