@@ -24,8 +24,94 @@ export default function HomePage() {
     return (el: HTMLElement | null) => { revealRefs.current[i] = el; };
   }
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://keplervel.com/#website",
+        "url": "https://keplervel.com",
+        "name": "Kepler Vel",
+        "description": "Official website of Australian literary fiction author Kepler Vel.",
+        "inLanguage": "en-AU",
+      },
+      {
+        "@type": "Person",
+        "@id": "https://keplervel.com/#author",
+        "name": "Kepler Vel",
+        "url": "https://keplervel.com",
+        "nationality": "Australian",
+        "jobTitle": "Author",
+        "sameAs": [
+          "https://www.instagram.com/keplervel/",
+          "https://www.tiktok.com/@keplervel",
+        ],
+      },
+      {
+        "@type": "Book",
+        "@id": "https://keplervel.com/books/the-art-of-almost-being-chosen#book",
+        "name": "The Art of Almost Being Chosen",
+        "author": { "@id": "https://keplervel.com/#author" },
+        "isbn": "979-8-18495-113-3",
+        "numberOfPages": 233,
+        "bookFormat": "https://schema.org/Paperback",
+        "inLanguage": "en",
+        "genre": "Literary Fiction",
+        "url": "https://keplervel.com/books/the-art-of-almost-being-chosen",
+        "image": "https://keplervel.com/assets/book-cover-on-brick-blue-wall.jpg",
+        "description": "She is brilliant, patient, and endlessly accommodating: the kind of woman who mistakes potential for promise and waiting for love.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "url": `https://www.amazon.com.au/dp/${book.asin}`,
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who is Kepler Vel?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kepler Vel is an Australian literary fiction author. Her debut novel, The Art of Almost Being Chosen, explores ambition, silence, and the women who mistake potential for love.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "What is The Art of Almost Being Chosen about?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Art of Almost Being Chosen follows a woman who is brilliant, patient, and endlessly accommodating — the kind who mistakes potential for promise and waiting for love. It traces what it costs to keep auditioning for a life that keeps almost happening.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I buy The Art of Almost Being Chosen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Art of Almost Being Chosen is available in Paperback and Kindle on Amazon worldwide, including Amazon Australia, Amazon US, Amazon UK, and other Amazon marketplaces.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "What is Kepler Vel's next book?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kepler Vel's next novel is The Blink He Waited For — a dual-timeline contemporary romance. She forgot the most important day of her life. He never could. Follow Kepler Vel on Instagram for updates.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* HERO */}
       <section className="relative h-screen min-h-150 flex items-end overflow-hidden pt-16">
         <Image
